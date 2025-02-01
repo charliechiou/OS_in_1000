@@ -685,68 +685,6 @@ void proc_b_entry(void)
     }
 }
 
-// void kernel_main(void) {
-//     const char *s = "\n\nHello World!\n";
-//     for (int i = 0; s[i] != '\0'; i++) {
-//         putchar(s[i]);
-//     }
-
-//     for (;;) {
-//         __asm__ __volatile__("wfi");
-//     }
-// }
-
-// void kernel_main(void) {
-//     printf("\n\nHello %s\n", "World!");
-//     printf("1 + 2 = %d, %x\n", 1 + 2, 0x1234abcd);
-
-//     for (;;) {
-//         __asm__ __volatile__("wfi");
-//     }
-// }
-
-// void kernel_main(void)
-// {
-//     memset(__bss, 0, (size_t)__bss_end - (size_t)__bss);
-
-//     WRITE_CSR(stvec, (uint32_t)kernel_entry); // new
-//     __asm__ __volatile__("unimp");            // new
-
-//     PANIC("booted!");
-//     printf("unreachable here!\n");
-// }
-
-// void kernel_main(void)
-// {
-//     memset(__bss, 0, (size_t)__bss_end - (size_t)__bss);
-//     printf("\n\nHello %s\n", "World!");
-
-//     paddr_t paddr0 = alloc_pages(2);
-//     paddr_t paddr1 = alloc_pages(1);
-//     printf("alloc_pages test: paddr0=%x\n", paddr0);
-//     printf("alloc_pages test: paddr1=%x\n", paddr1);
-
-//     PANIC("booted!");
-// }
-
-// void kernel_main(void)
-// {
-//     memset(__bss, 0, (size_t)__bss_end - (size_t)__bss);
-
-//     WRITE_CSR(stvec, (uint32_t)kernel_entry);
-
-//     idle_proc = create_process((uint32_t)NULL);
-//     idle_proc->pid = -1; // idle
-//     current_proc = idle_proc;
-
-//     proc_a = create_process((uint32_t)proc_a_entry);
-//     proc_b = create_process((uint32_t)proc_b_entry);
-
-//     yield();
-//     PANIC("switched to idle process");
-//     PANIC("unreachable here!");
-// }
-
 void kernel_main(void)
 {
     memset(__bss, 0, (size_t)__bss_end - (size_t)__bss);
